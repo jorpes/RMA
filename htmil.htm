@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REMASTED - Register</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(25, 25, 25, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            z-index: 1;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 32px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        button, a {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .register-btn {
+            background-color: #28a745;
+        }
+
+        .register-btn:hover {
+            background-color: #218838;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            color: black;
+            width: 80%;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        #register-error {
+            color: red;
+            display: none;
+        }
+
+        #downloads {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #downloads h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <h1>Registro</h1>
+        <input type="text" id="register-username" placeholder="Nuevo usuario" />
+        <br />
+        <input type="password" id="register-password" placeholder="Nueva contraseña" />
+        <br />
+        <div id="register-error">El usuario ya existe o faltan campos.</div>
+
+        <button class="register-btn" onclick="register()">Registrar</button>
+
+        <div id="downloads">
+            <h2>Descargas</h2>
+            <a href="https://www.dropbox.com/scl/fi/aag5dcmmokaeejplszswd/aaaaaa-2.exe?rlkey=1ejfvi1vck0xnozofhgjp1qp5&dl=1" id="woofer-link" download>Descargar Remasted Woofer</a><br>
+            <a href="https://www.dropbox.com/scl/fi/aag5dcmmokaeejplszswd/aaaaaa-2.exe?rlkey=1ejfvi1vck0xnozofhgjp1qp5&dl=1" id="remastered-link" download>Descargar Remastered External</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Configuración de partículas
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 150,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": ["circle", "edge"],
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                },
+                "opacity": {
+                    "value": 0.7,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 8,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.6,
+                    "width": 1.5
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Función de registro
+        function register() {
+            const username = document.getElementById('register-username').value;
+            const password = document.getElementById('register-password').value;
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            const userExists = users.find(user => user.username === username);
+
+            if (!userExists && username && password) {
+                users.push({ username: username, password: password });
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Registro exitoso');
+                document.getElementById('downloads').style.display = 'block'; // Mostrar descargas
+
+                // Descargar automáticamente los archivos
+                downloadFile('woofer-link');
+                downloadFile('remastered-link');
+            } else {
+                document.getElementById('register-error').style.display = 'block';
+            }
+        }
+
+        // Función para descargar automáticamente los archivos
+        function downloadFile(linkId) {
+            const link = document.getElementById(linkId);
+            link.click();
+        }
+    </script>
+</body>
+</html>
